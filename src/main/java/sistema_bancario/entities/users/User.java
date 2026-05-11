@@ -1,27 +1,19 @@
-package sistema_bancario.entities;
+package sistema_bancario.entities.users;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import sistema_bancario.entities.Account;
 import sistema_bancario.entities.enums.UserRole;
 import sistema_bancario.entities.validation.constraints.PhoneNumber;
 
@@ -51,6 +43,9 @@ public abstract class User implements UserDetails {
 
     @NotNull(message = "Required field")
     private String password;
+
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
+    private Account account;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

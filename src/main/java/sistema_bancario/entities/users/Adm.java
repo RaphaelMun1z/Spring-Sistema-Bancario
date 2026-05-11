@@ -1,4 +1,4 @@
-package sistema_bancario.entities;
+package sistema_bancario.entities.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

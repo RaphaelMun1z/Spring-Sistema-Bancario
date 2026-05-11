@@ -49,6 +49,7 @@ public class SecurityConfigurations {
                                 "/test/ping"
                         ).permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .anyRequest().permitAll() // Temporário!!!
 
                         // ─── Exemplo ────────────────────────────────────────────────────
                         //.requestMatchers("/exemplo/**").hasAnyRole("ADM", "SELLER")

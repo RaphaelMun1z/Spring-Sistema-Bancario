@@ -8,7 +8,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import sistema_bancario.dtos.TokenDTO;
-import sistema_bancario.entities.User;
+import sistema_bancario.entities.users.User;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;

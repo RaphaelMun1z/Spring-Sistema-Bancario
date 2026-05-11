@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import sistema_bancario.entities.User;
+import sistema_bancario.entities.users.User;
 import sistema_bancario.repositories.UserRepository;
 
 import java.io.IOException;
