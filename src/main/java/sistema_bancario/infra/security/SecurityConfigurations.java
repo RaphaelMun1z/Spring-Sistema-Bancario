@@ -55,7 +55,7 @@ public class SecurityConfigurations {
                         //.requestMatchers("/exemplo/**").hasAnyRole("ADM", "SELLER")
 
                         // ─── Demais endpoints autenticados ────────────────────────────────
-                        .anyRequest().authenticated()
+                        //.anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
     }

@@ -1,7 +1,7 @@
 package sistema_bancario.entities.enums;
 
 public enum UserRole {
-	SELLER("seller"), ADM("adm");
+	CUSTOMER("customer"), ADM("adm");
 
 	private String role;
 

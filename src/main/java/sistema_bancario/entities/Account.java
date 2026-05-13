@@ -1,14 +1,17 @@
 package sistema_bancario.entities;
 
 import jakarta.persistence.*;
-import sistema_bancario.entities.users.User;
+import sistema_bancario.entities.users.Customer;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "tb_accounts")
+@Entity
+@Table(name = "tb_accounts")
 public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -17,18 +20,21 @@ public class Account implements Serializable {
     private BigDecimal balance;
 
     @OneToOne
-    @JoinColumn(name = "owner_id", unique = true)
-    private User owner;
+    @JoinColumn(name = "customer_id", unique = true)
+    private Customer customer;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Transaction> transactions;
+    @OneToMany(mappedBy = "senderAccount", cascade = CascadeType.ALL)
+    private List<Transaction> outgoingTransactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "receiverAccount", cascade = CascadeType.ALL)
+    private List<Transaction> incomingTransactions = new ArrayList<>();
 
     public Account() {
     }
 
-    public Account(BigDecimal balance, User owner) {
+    public Account(BigDecimal balance, Customer customer) {
         this.balance = balance;
-        this.owner = owner;
+        this.customer = customer;
     }
 
     public String getId() {
@@ -47,24 +53,54 @@ public class Account implements Serializable {
         this.balance = balance;
     }
 
-    public User getOwner() {
-        return owner;
+    public void withdraw(BigDecimal amount) {
+        if(balance.compareTo(amount) < 0) {
+            throw new IllegalArgumentException("Saldo insuficiente.");
+        }
+
+        balance = balance.subtract(amount);
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void deposit(BigDecimal amount) {
+        balance = balance.add(amount);
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Transaction> getOutgoingTransactions() {
+        return outgoingTransactions;
+    }
+
+    public List<Transaction> getIncomingTransactions() {
+        return incomingTransactions;
+    }
+
+    public List<Transaction> getTransactionHistory() {
+        List<Transaction> history = new ArrayList<>();
+
+        history.addAll(outgoingTransactions);
+        history.addAll(incomingTransactions);
+
+        history.sort(Comparator.comparing(Transaction::getMoment));
+        return history;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(id, account.id) && Objects.equals(balance, account.balance) && Objects.equals(owner, account.owner);
+        if (this == o) return true;
+        if (!(o instanceof Account that)) return false;
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, balance, owner);
+        return Objects.hash(id);
     }
 
     @Override
@@ -72,7 +108,6 @@ public class Account implements Serializable {
         return "Account{" +
                 "id='" + id + '\'' +
                 ", balance=" + balance +
-                ", owner=" + owner +
                 '}';
     }
 }

@@ -28,7 +28,6 @@ public abstract class User implements UserDetails {
     private String id;
 
     @NotNull(message = "Required field")
-    @Pattern(regexp = "^[A-Z]+(.)*")
     private String name;
 
     @NotNull(message = "Required field")
@@ -43,9 +42,6 @@ public abstract class User implements UserDetails {
 
     @NotNull(message = "Required field")
     private String password;
-
-    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
-    private Account account;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
@@ -133,9 +129,9 @@ public abstract class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (role == UserRole.ADM) {
-            return List.of(new SimpleGrantedAuthority("ROLE_ADM"), new SimpleGrantedAuthority("ROLE_SELLER"));
-        } else if (role == UserRole.SELLER) {
-            return List.of(new SimpleGrantedAuthority("ROLE_SELLER"));
+            return List.of(new SimpleGrantedAuthority("ROLE_ADM"), new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+        } else if (role == UserRole.CUSTOMER) {
+            return List.of(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
         } else {
             throw new IllegalArgumentException("Unexpected value: " + this.role);
         }
@@ -175,11 +171,10 @@ public abstract class User implements UserDetails {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null)
+
+        if (!(obj instanceof User other))
             return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
+
         return Objects.equals(id, other.id);
     }
 }

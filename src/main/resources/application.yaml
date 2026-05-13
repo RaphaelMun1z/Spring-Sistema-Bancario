@@ -8,7 +8,8 @@ server:
 spring:
   application:
     name: sistema-bancario
-    profile: test
+  profiles:
+    active: test
 
 api:
   security:
