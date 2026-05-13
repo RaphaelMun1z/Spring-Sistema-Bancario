@@ -1,0 +1,18 @@
+10:21:05 INFO  [s.Startup] - Starting Startup using Java 21.0.9 with PID 15740 (C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario\target\classes started by rapha in C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario)
+10:21:05 DEBUG [s.Startup] - Running with Spring Boot v3.5.14, Spring v6.2.18
+10:21:05 INFO  [s.Startup] - The following 1 profile is active: "test"
+10:21:09 DEBUG [s.i.s.SecurityFilter] - Filter 'securityFilter' configured for use
+10:21:10 INFO  [s.Startup] - Started Startup in 6.452 seconds (process running for 7.329)
+10:21:10 INFO  [s.s.CustomerService] - event=customer_creation_request cpf=123.123.123-12 email=raphaelmuniz@gmail.com
+10:21:11 INFO  [s.s.CustomerService] - event=customer_creation_success customerId=a8c8ba21-0752-449b-92b9-a9ea0b7bd4e8 cpf=123.123.123-12 email=raphaelmuniz@gmail.com
+10:21:11 INFO  [s.s.AccountService] - event=create_account_request
+10:21:11 INFO  [s.s.CustomerService] - event=customer_search_request cpf=123.123.123-12
+10:21:11 INFO  [s.s.CustomerService] - event=customer_search_success customerId=a8c8ba21-0752-449b-92b9-a9ea0b7bd4e8 cpf=123.123.123-12
+10:21:11 INFO  [s.s.AccountService] - event=consult_account_details_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
+10:21:11 INFO  [s.s.AccountService] - event=consult_account_details_success accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
+10:21:11 INFO  [s.s.TransactionService] - event=deposit_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=900.0
+10:21:11 INFO  [s.s.TransactionService] - event=deposit_success transactionId=bb5100ef-b477-46be-b5a9-9bc982eb21a7 accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=900.0 balanceAfter=900.00
+10:21:11 INFO  [s.s.TransactionService] - event=withdraw_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=200.0
+10:21:11 INFO  [s.s.TransactionService] - event=withdraw_success transactionId=6520d224-8280-4a0d-8fd3-5dcb11f04ee9 accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=200.0 balanceAfter=700.00
+10:21:11 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
+10:21:11 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=b3b94a20-03ea-46e5-a32b-0171a660288c balance=700.00

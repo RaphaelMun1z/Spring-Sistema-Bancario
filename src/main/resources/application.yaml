@@ -31,17 +31,6 @@ management:
     health:
       show-details: always
 
-logging:
-  file:
-    name: logs/logs-sistema-bancario.log
-  level:
-    root: INFO
-    io.github.raphaelmun1z: DEBUG
-  logback:
-    rollingpolicy:
-      max-file-size: 10MB
-      max-history: 7
-
 cors:
   originPatterns: ${CORS_ORIGINS:http://localhost:4200}
 
