@@ -9,8 +9,6 @@ import sistema_bancario.entities.users.Customer;
 import sistema_bancario.repositories.CustomerRepository;
 import sistema_bancario.services.exceptions.ResourceNotFoundException;
 
-import java.util.Optional;
-
 @Service
 public class CustomerService {
     private static final Logger log = LoggerFactory.getLogger(CustomerService.class);

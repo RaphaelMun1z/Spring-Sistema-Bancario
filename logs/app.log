@@ -1,18 +1,39 @@
-10:21:05 INFO  [s.Startup] - Starting Startup using Java 21.0.9 with PID 15740 (C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario\target\classes started by rapha in C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario)
-10:21:05 DEBUG [s.Startup] - Running with Spring Boot v3.5.14, Spring v6.2.18
-10:21:05 INFO  [s.Startup] - The following 1 profile is active: "test"
-10:21:09 DEBUG [s.i.s.SecurityFilter] - Filter 'securityFilter' configured for use
-10:21:10 INFO  [s.Startup] - Started Startup in 6.452 seconds (process running for 7.329)
-10:21:10 INFO  [s.s.CustomerService] - event=customer_creation_request cpf=123.123.123-12 email=raphaelmuniz@gmail.com
-10:21:11 INFO  [s.s.CustomerService] - event=customer_creation_success customerId=a8c8ba21-0752-449b-92b9-a9ea0b7bd4e8 cpf=123.123.123-12 email=raphaelmuniz@gmail.com
-10:21:11 INFO  [s.s.AccountService] - event=create_account_request
-10:21:11 INFO  [s.s.CustomerService] - event=customer_search_request cpf=123.123.123-12
-10:21:11 INFO  [s.s.CustomerService] - event=customer_search_success customerId=a8c8ba21-0752-449b-92b9-a9ea0b7bd4e8 cpf=123.123.123-12
-10:21:11 INFO  [s.s.AccountService] - event=consult_account_details_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
-10:21:11 INFO  [s.s.AccountService] - event=consult_account_details_success accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
-10:21:11 INFO  [s.s.TransactionService] - event=deposit_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=900.0
-10:21:11 INFO  [s.s.TransactionService] - event=deposit_success transactionId=bb5100ef-b477-46be-b5a9-9bc982eb21a7 accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=900.0 balanceAfter=900.00
-10:21:11 INFO  [s.s.TransactionService] - event=withdraw_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=200.0
-10:21:11 INFO  [s.s.TransactionService] - event=withdraw_success transactionId=6520d224-8280-4a0d-8fd3-5dcb11f04ee9 accountId=b3b94a20-03ea-46e5-a32b-0171a660288c amount=200.0 balanceAfter=700.00
-10:21:11 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=b3b94a20-03ea-46e5-a32b-0171a660288c
-10:21:11 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=b3b94a20-03ea-46e5-a32b-0171a660288c balance=700.00
+20:49:27 INFO  [s.Startup] - Starting Startup using Java 21.0.9 with PID 4804 (C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario\target\classes started by rapha in C:\Users\rapha\Documents\Projetos\sistema-bancario\sistema-bancario)
+20:49:27 DEBUG [s.Startup] - Running with Spring Boot v3.5.14, Spring v6.2.18
+20:49:27 INFO  [s.Startup] - The following 1 profile is active: "test"
+20:49:30 DEBUG [s.i.s.SecurityFilter] - Filter 'securityFilter' configured for use
+20:49:31 INFO  [s.Startup] - Started Startup in 4.393 seconds (process running for 4.922)
+20:49:31 INFO  [s.s.CustomerService] - event=customer_creation_request cpf=123.123.123-12 email=raphaelmuniz@gmail.com
+20:49:31 INFO  [s.s.CustomerService] - event=customer_creation_success customerId=1e0e2c0a-a064-45da-b2f1-8cf201c511d4 cpf=123.123.123-12 email=raphaelmuniz@gmail.com
+20:49:31 INFO  [s.s.CustomerService] - event=customer_creation_request cpf=321.321.321-21 email=neymar@gmail.com
+20:49:31 INFO  [s.s.CustomerService] - event=customer_creation_success customerId=cb10c100-997d-4715-b61e-74d818dba70e cpf=321.321.321-21 email=neymar@gmail.com
+20:49:31 INFO  [s.s.AccountService] - event=create_account_request
+20:49:31 INFO  [s.s.CustomerService] - event=customer_search_request cpf=123.123.123-12
+20:49:31 INFO  [s.s.CustomerService] - event=customer_search_success customerId=1e0e2c0a-a064-45da-b2f1-8cf201c511d4 cpf=123.123.123-12
+20:49:31 INFO  [s.s.AccountService] - event=create_account_request
+20:49:31 INFO  [s.s.CustomerService] - event=customer_search_request cpf=321.321.321-21
+20:49:31 INFO  [s.s.CustomerService] - event=customer_search_success customerId=cb10c100-997d-4715-b61e-74d818dba70e cpf=321.321.321-21
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_details_request accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_details_success accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 customerId=1e0e2c0a-a064-45da-b2f1-8cf201c511d4 balance=0.00 availableLimit=1400.00
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_details_request accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_details_success accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 customerId=cb10c100-997d-4715-b61e-74d818dba70e balance=0.00 availableLimit=1400.00
+20:49:31 INFO  [s.s.p.TransactionService] - event=deposit_request accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=9000.0
+20:49:31 INFO  [s.s.p.TransactionService] - event=deposit_success transactionId=b170a4df-56de-4045-b4ec-3b0793ad4582 accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=9000.0 balanceAfter=9000.00
+20:49:31 INFO  [s.s.p.TransactionService] - event=withdraw_request accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=200.0
+20:49:31 INFO  [s.s.p.TransactionService] - event=withdraw_success transactionId=4970e54e-a187-4d6d-8f9f-80fbe70c2ce1 accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=200.0 balanceAfter=8800.00
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 balance=0.00
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 balance=8800.00
+20:49:31 INFO  [s.s.p.TransactionService] - event=payment_processing_request transactionType=PIX senderAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 receiverAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 amount=1200
+20:49:31 INFO  [s.s.p.m.PixService] - event=pix_request senderAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 receiverAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 amount=1200
+20:49:31 INFO  [s.s.p.m.PixService] - event=pix_success senderAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 receiverAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 amount=1200 senderBalanceAfter=7600.00 receiverBalanceAfter=1200.00
+20:49:31 INFO  [s.s.p.TransactionService] - event=payment_processing_success transactionType=PIX transactionId=0fdfcedd-2023-45c3-8ae7-51c87fba8c2f
+20:49:31 INFO  [s.s.p.TransactionService] - event=payment_processing_request transactionType=CREDIT_CARD senderAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 receiverAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=110
+20:49:31 INFO  [s.s.p.m.CreditCardService] - event=credit_card_request senderAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 receiverAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=110
+20:49:31 INFO  [s.s.p.m.CreditCardService] - event=credit_card_success senderAccountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 receiverAccountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 amount=110 senderCreditLimitAfter=1290.00 receiverBalanceAfter=7710.00
+20:49:31 INFO  [s.s.p.TransactionService] - event=payment_processing_success transactionType=CREDIT_CARD transactionId=85e725c5-3f08-4f95-a236-88586e6e05aa
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=474946e5-31ee-4b7e-aab8-efbdcf50e0c5 balance=1200.00
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_request accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6
+20:49:31 INFO  [s.s.AccountService] - event=consult_account_balance_success accountId=631d3d46-26c2-4590-9d4e-b82aef3794d6 balance=7710.00

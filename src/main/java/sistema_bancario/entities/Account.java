@@ -19,6 +19,8 @@ public class Account implements Serializable {
 
     private BigDecimal balance;
 
+    private BigDecimal availableLimit;
+
     @OneToOne
     @JoinColumn(name = "customer_id", unique = true)
     private Customer customer;
@@ -32,8 +34,9 @@ public class Account implements Serializable {
     public Account() {
     }
 
-    public Account(BigDecimal balance, Customer customer) {
+    public Account(BigDecimal balance, BigDecimal availableLimit, Customer customer) {
         this.balance = balance;
+        this.availableLimit = availableLimit;
         this.customer = customer;
     }
 
@@ -53,8 +56,16 @@ public class Account implements Serializable {
         this.balance = balance;
     }
 
+    public BigDecimal getAvailableLimit() {
+        return availableLimit;
+    }
+
+    public void setAvailableLimit(BigDecimal availableLimit) {
+        this.availableLimit = availableLimit;
+    }
+
     public void withdraw(BigDecimal amount) {
-        if(balance.compareTo(amount) < 0) {
+        if (balance.compareTo(amount) < 0) {
             throw new IllegalArgumentException("Saldo insuficiente.");
         }
 
@@ -63,6 +74,14 @@ public class Account implements Serializable {
 
     public void deposit(BigDecimal amount) {
         balance = balance.add(amount);
+    }
+
+    public void consumeCreditLimit(BigDecimal amount) {
+        if (availableLimit.compareTo(amount) < 0) {
+            throw new IllegalArgumentException("Crédito insuficiente.");
+        }
+
+        availableLimit = availableLimit.subtract(amount);
     }
 
     public Customer getCustomer() {
@@ -106,8 +125,8 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "Account{" +
-                "id='" + id + '\'' +
-                ", balance=" + balance +
-                '}';
+            "id='" + id + '\'' +
+            ", balance=" + balance +
+            '}';
     }
 }

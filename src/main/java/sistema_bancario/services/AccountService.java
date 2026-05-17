@@ -2,19 +2,15 @@ package sistema_bancario.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import sistema_bancario.dtos.req.AccountReqDTO;
 import sistema_bancario.dtos.res.AccountDetailsResDTO;
 import sistema_bancario.entities.Account;
 import sistema_bancario.entities.users.Customer;
 import sistema_bancario.repositories.AccountRepository;
-import sistema_bancario.repositories.CustomerRepository;
 import sistema_bancario.services.exceptions.ResourceNotFoundException;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -28,7 +24,7 @@ public class AccountService {
         this.customerService = customerService;
     }
 
-    public AccountDetailsResDTO createAccount(AccountReqDTO req){
+    public AccountDetailsResDTO createAccount(AccountReqDTO req) {
         log.info(
                 "event=create_account_request"
         );
@@ -38,6 +34,7 @@ public class AccountService {
         Account newAccount = new Account();
         newAccount.setCustomer(customer);
         newAccount.setBalance(BigDecimal.valueOf(0.00));
+        newAccount.setAvailableLimit(BigDecimal.valueOf(1400));
 
         Account savedAccount = accountRepository.save(newAccount);
 
@@ -86,8 +83,11 @@ public class AccountService {
                 });
 
         log.info(
-                "event=consult_account_details_success accountId={}",
-                accountId
+                "event=consult_account_details_success accountId={} customerId={} balance={} availableLimit={}",
+                account.getId(),
+                account.getCustomer().getId(),
+                account.getBalance(),
+                account.getAvailableLimit()
         );
 
         return new AccountDetailsResDTO(accountId, account.getBalance(), account.getCustomer().getId());

@@ -1,4 +1,4 @@
-package sistema_bancario.controllers.exceptions;
+package sistema_bancario.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,12 +14,12 @@ public class TestController {
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
     private final TestService testService;
 
-    public TestController(TestService testService){
+    public TestController(TestService testService) {
         this.testService = testService;
     }
 
     @GetMapping("ping")
-    public ResponseEntity<String> ping(){
+    public ResponseEntity<String> ping() {
         log.info("Ping Acionado!");
         return ResponseEntity.ok(testService.ping());
     }
